@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Unscrambler</title>
+</head>
+<body>
+    <h1>Word Unscrambler</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Unscramble</button>
+    </form>
+    {% if unscrambled_words %}
+        <h2>Possible Words:</h2>
+        <ul>
+            {% for word in unscrambled_words %}
+                <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+</body>
+</html>
